@@ -1,38 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 14px;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --color-border-gray: #a7a7a79b;
+  --color-pink: #f6d9f1;
+  --color-orange: #ea580c;
+  --color-orange-light: #ea5a0c52;
+}
 .App {
-  text-align: center;
+  display: grid;
+  width: 100%;
+  padding: 10% 14%;
+  height: fit-content;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#container-friends {
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: fit-content;
+
+  background-color: var(--color-pink);
+  border: 1px solid var(--color-border-gray);
+}
+
+#container-AddFriendForm {
+  height: fit-content;
+  padding: 1rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-pink);
+}
+
+#container-SplitPurchaseForm {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background-color: var(--color-pink);
+}
+
+/* EVERYTHING RELATED WITH BUTTONS */
+
+.btn-orange {
+  background-color: #f97316; /* naranja vibrante */
   color: white;
+  padding: 0.47rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-orange:hover {
+  background-color: var(--color-orange);
+}
+.btn-split-containere {
+  width: 100%;
+  display: flex;
+  padding: 0 3rem;
+  justify-content: flex-end;
+}
+/*  FRIEND ITEM COMPONENT*/
+
+.friend-detail {
+  display: flex;
+  flex-direction: column;
+}
+.friend-item {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 5rem 1fr 1fr;
+  width: 35rem;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  height: fit-content;
+}
+.friend-item:hover {
+  background-color: var(--color-orange-light);
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.name {
+  font-weight: 700;
+}
+
+.container-input-style {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+
+input[type="text"],
+select {
+  width: fit-content;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem; /* 6px */
+  background-color: #fff;
+  color: #333;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+input[type="text"]:focus,
+select:focus {
+  border-color: #5f2ef5d8;
+}
+
+select option {
+  background-color: #fff;
+  color: #333;
 }
