@@ -36,12 +36,17 @@ function App() {
     },
   ];
   return (
-    <div className="App">
-      <div>
-        <FriendList friendsArray={friendsArray} />
-        <AddFriendForm />
+    <div className="main-container-app">
+      <h1 style={{ textAlign: "center" }}>
+        Fair splits, strong friendships (｡•̀ᴗ-)
+      </h1>
+      <div className="App">
+        <div>
+          <FriendList friendsArray={friendsArray} />
+          <AddFriendForm />
+        </div>
+        <SplitPurchaseForm />
       </div>
-      <SplitPurchaseForm />
     </div>
   );
 }

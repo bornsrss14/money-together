@@ -15,10 +15,20 @@ body {
   --color-orange: #ea580c;
   --color-orange-light: #ea5a0c52;
 }
+.main-container-app {
+  display: grid;
+  grid-column: 1fr;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  padding: 2rem 15rem;
+  margin: 1 auto;
+}
 .App {
   display: grid;
-  width: 100%;
-  padding: 10% 14%;
+  justify-content: center;
+  width: fit-content;
+  margin: 1rem auto;
   height: fit-content;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
