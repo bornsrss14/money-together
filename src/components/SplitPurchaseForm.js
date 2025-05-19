@@ -1,33 +1,53 @@
-import React from "react";
+import React, { use, useState } from "react";
 import ButtonGral from "../core/ButtonGral";
 
-export const SplitPurchaseForm = ({ friendsName = "Anna Oh" }) => {
+export const SplitPurchaseForm = ({ selectedFriend }) => {
+  const [bill, setBill] = useState("");
+  const [yourExpense, setYourExpense] = useState("");
+  const [whoIsPaying, setWhoIsPaying] = useState("user");
+  const paidByFriend = bill ? bill - yourExpense : "";
+
   function handleSpilTheBill(e) {
     e.preventDefault();
-    console.log("You've clicked Split the bill funtion");
+    console.log(
+      `The bill: ${bill}, you expensed ${yourExpense} and your friend expesnsed ${paidByFriend}, the bill was paieed by ${whoIsPaying}`
+    );
+    setYourExpense("");
+    setBill("");
   }
   return (
     <form onSubmit={handleSpilTheBill} id="container-SplitPurchaseForm">
-      <h1>{`Spill a bill with ${friendsName}`}</h1>
+      <h1>{`Spill a bill with ${selectedFriend.name}`}</h1>
       <div className="container-input-style">
         <label>💸 Bill Value</label>
-        <input type="text" />
+        <input
+          value={bill}
+          onChange={(e) => setBill(Number(e.target.value))}
+          type="text"
+        />
       </div>
 
       <div className="container-input-style">
         <label>🧍‍♀️ Your Expense</label>
-        <input type="text" />
+        <input
+          onChange={(e) => setYourExpense(Number(e.target.value))}
+          value={yourExpense}
+          type="text"
+        />
       </div>
 
       <div className="container-input-style">
-        <label> {`${friendsName}'s expense`}</label>
-        <input placeholder="none" type="text" disabled />
+        <label> {`${selectedFriend.name}'s expense`}</label>
+        <input value={paidByFriend} placeholder="none" type="text" disabled />
       </div>
       <div className="container-input-style">
         <label>🤑 Who is paying the bill?</label>
-        <select>
-          <option value={"friend"}>You</option>
-          <option value={"you"}>{friendsName}</option>
+        <select
+          value={whoIsPaying}
+          onChange={(e) => setWhoIsPaying(e.target.value)}
+        >
+          <option value={"me"}>You</option>
+          <option value={"friend"}>{selectedFriend.name}</option>
         </select>
       </div>
       <div className="btn-split-containere">

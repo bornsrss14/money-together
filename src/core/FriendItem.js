@@ -2,7 +2,9 @@ import React from "react";
 import ImagenFit from "./ImagenFit";
 import ButtonGral from "./ButtonGral";
 
-export const FriendItem = ({ friendObject }) => {
+export const FriendItem = ({ onSelectFriend, friendObject }) => {
+  const handleClick = () => onSelectFriend(friendObject);
+
   return (
     <>
       <div className="friend-item">
@@ -19,7 +21,7 @@ export const FriendItem = ({ friendObject }) => {
           <span>{`You owe Ros $7 MXN`}</span>
         </div>
         <div>
-          <ButtonGral txt={"select"} />
+          <ButtonGral onClick={handleClick} txt={"select"} />
         </div>
       </div>
     </>

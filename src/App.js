@@ -3,8 +3,14 @@ import "./App.css";
 import FriendList from "./components/FriendList";
 import SplitPurchaseForm from "./components/SplitPurchaseForm";
 import AddFriendForm from "./components/AddFriendForm";
+import { useState } from "react";
 
 function App() {
+  const [selectedFriend, setSelectedFriend] = useState("null");
+  const handleSelectFriend = (friend) => setSelectedFriend(friend);
+  const [showAddFriendForm, setShowAddFriendForm] = useState(false);
+
+  console.log(selectedFriend);
   const friendsArray = [
     {
       id: 17849,
@@ -35,6 +41,11 @@ function App() {
       balance: 44,
     },
   ];
+  const [friendsMainArr, setFriendsMainArr] = useState(friendsArray);
+
+  function handleAddFriend(friendItem) {
+    setFriendsMainArr((friendsMainArr) => [...friendsArray, friendItem]);
+  }
   return (
     <div className="main-container-app">
       <h1 style={{ textAlign: "center" }}>
@@ -42,10 +53,13 @@ function App() {
       </h1>
       <div className="App">
         <div>
-          <FriendList friendsArray={friendsArray} />
+          <FriendList
+            onSelectFriend={handleSelectFriend}
+            friendsArray={friendsArray}
+          />
           <AddFriendForm />
         </div>
-        <SplitPurchaseForm />
+        <SplitPurchaseForm selectedFriend={selectedFriend} />
       </div>
     </div>
   );

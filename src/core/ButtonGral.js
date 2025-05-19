@@ -1,9 +1,11 @@
 import React from "react";
 
-export const ButtonGral = ({ txt }) => {
+export const ButtonGral = ({ txt, onClick }) => {
   return (
     <>
-      <button className="btn-orange">{txt}</button>
+      <button onClick={onClick} className="btn-orange">
+        {txt}
+      </button>
     </>
   );
 };

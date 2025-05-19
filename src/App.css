@@ -80,8 +80,10 @@ body {
 .btn-split-containere {
   width: 100%;
   display: flex;
-  padding: 0 3rem;
   justify-content: flex-end;
+}
+.btn-extra-style {
+  padding: 1rem 1rem;
 }
 /*  FRIEND ITEM COMPONENT*/
 
