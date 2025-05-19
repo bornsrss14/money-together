@@ -55,7 +55,7 @@ function App() {
         <div>
           <FriendList
             onSelectFriend={handleSelectFriend}
-            friendsArray={friendsArray}
+            friendsArray={friendsMainArr}
           />
           <AddFriendForm />
         </div>
