@@ -47,6 +47,16 @@ function App() {
     setFriendsMainArr((prevFriends) => [...prevFriends, friendItem]);
   }
 
+  function handleSplitTheBill(value) {
+    setFriendsMainArr((friendsMainArr) =>
+      friendsMainArr.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+  }
+
   return (
     <div className="main-container-app">
       <h1 style={{ textAlign: "center" }}>
@@ -63,7 +73,10 @@ function App() {
             handleAddFriend={handleAddFriend}
           />
         </div>
-        <SplitPurchaseForm selectedFriend={selectedFriend} />
+        <SplitPurchaseForm
+          onSplitTheBill={handleSplitTheBill}
+          selectedFriend={selectedFriend}
+        />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const FriendItem = ({ onSelectFriend, friendObject }) => {
         </div>
         <div className="friend-detail">
           <p className="name">{friendObject.name}</p>
-          <span>{`You owe Ros $7 MXN`}</span>
+          <span>{`You owe Ros ${friendObject.balance} MXN`}</span>
         </div>
         <div>
           <ButtonGral onClick={handleClick} txt={"select"} />

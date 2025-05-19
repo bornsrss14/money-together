@@ -11,7 +11,7 @@ export const AddFriendForm = ({ handleAddFriend }) => {
   function handleSubmitNewFriend(e) {
     e.preventDefault();
     if (!friendName || !urlPic) return;
-    const id = new Date();
+    const id = Date.now().toString().slice(-8);
     const newFriend = {
       id,
       name: friendName,

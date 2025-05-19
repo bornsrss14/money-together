@@ -1,17 +1,25 @@
 import React, { use, useState } from "react";
 import ButtonGral from "../core/ButtonGral";
 
-export const SplitPurchaseForm = ({ selectedFriend }) => {
+export const SplitPurchaseForm = ({ onSplitTheBill, selectedFriend }) => {
   const [bill, setBill] = useState("");
   const [yourExpense, setYourExpense] = useState("");
-  const [whoIsPaying, setWhoIsPaying] = useState("user");
+  const [whoIsPaying, setWhoIsPaying] = useState("");
   const paidByFriend = bill ? bill - yourExpense : "";
 
   function handleSpilTheBill(e) {
     e.preventDefault();
+    if (!bill || !yourExpense) return;
+    const deudor =
+      whoIsPaying === "me"
+        ? `Your friend owes you ${paidByFriend}`
+        : `You owe to ${whoIsPaying} $${yourExpense}`;
     console.log(
-      `The bill: ${bill}, you expensed ${yourExpense} and your friend expesnsed ${paidByFriend}, the bill was paieed by ${whoIsPaying}`
+      `The bill: ${bill}, you expensed ${yourExpense} and your friend expesnsed ${paidByFriend}, the bill was paieed by ${whoIsPaying}
+      and ${deudor}`
     );
+    onSplitTheBill(whoIsPaying === "me" ? paidByFriend : -yourExpense);
+
     setYourExpense("");
     setBill("");
   }
