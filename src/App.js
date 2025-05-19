@@ -44,8 +44,9 @@ function App() {
   const [friendsMainArr, setFriendsMainArr] = useState(friendsArray);
 
   function handleAddFriend(friendItem) {
-    setFriendsMainArr((friendsMainArr) => [...friendsArray, friendItem]);
+    setFriendsMainArr((prevFriends) => [...prevFriends, friendItem]);
   }
+
   return (
     <div className="main-container-app">
       <h1 style={{ textAlign: "center" }}>
@@ -55,9 +56,12 @@ function App() {
         <div>
           <FriendList
             onSelectFriend={handleSelectFriend}
-            friendsArray={friendsMainArr}
+            friendsMainArr={friendsMainArr}
           />
-          <AddFriendForm />
+          <AddFriendForm
+            friendsMainArr={friendsMainArr}
+            handleAddFriend={handleAddFriend}
+          />
         </div>
         <SplitPurchaseForm selectedFriend={selectedFriend} />
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ButtonGral from "../core/ButtonGral";
 
-export const AddFriendForm = () => {
+export const AddFriendForm = ({ handleAddFriend }) => {
   const [friendName, setFriendName] = useState("");
   const [urlPic, setUrlPic] = useState("");
   const [showFormAddFriend, setShowFormAddFriend] = useState(false);
@@ -13,16 +13,16 @@ export const AddFriendForm = () => {
     if (!friendName || !urlPic) return;
     const id = new Date();
     const newFriend = {
-      friendName,
       id,
-      image: urlPic,
+      name: friendName,
+      profilePic: urlPic,
       balance: 0,
     };
-    //funFaltante para agregar un nuevo FriendItem a Friends
 
+    //funFaltante para agregar un nuevo FriendItem a Friends
+    handleAddFriend(newFriend);
     setFriendName("");
     setUrlPic("");
-    console.log("You press add new friend function");
     handleShowFriendForm();
   }
   return (
