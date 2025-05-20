@@ -18,6 +18,26 @@ function App() {
       profilePic:
         "https://i-d.co/wp-content/uploads/2024/05/untitled-article-1465358355-body-image-1465358689.jpg?w=640&quality=90",
       balance: 0,
+      expenses: [
+        {
+          id_exp: "e1",
+          bill: 100,
+          yourExpense: 60,
+          paidBy: "",
+          concept: "Pago CFE",
+          category: "Servicios",
+          date: "2025-05-18T20:10:00Z",
+        },
+        {
+          id_exp: "e2",
+          bill: 300,
+          yourExpense: 150,
+          paidBy: "friend",
+          concept: "Compra de víveres",
+          category: "Comida",
+          date: "2025-05-10T17:20:00Z",
+        },
+      ],
     },
     {
       id: 14249,
@@ -25,6 +45,17 @@ function App() {
       profilePic:
         "https://i-d.co/wp-content/uploads/2024/05/woman-crush-wednesday-with-francescannon-body-image-1464747425.jpg?w=750&quality=90",
       balance: 0,
+      expenses: [
+        {
+          id_exp: "e4",
+          bill: 500,
+          yourExpense: 48,
+          paidBy: "friend",
+          concept: "Botiquín de emergencias",
+          category: "Salud",
+          date: "2025-04-11T17:20:00Z",
+        },
+      ],
     },
     {
       id: 89658,
@@ -32,6 +63,7 @@ function App() {
       profilePic:
         "https://i-d.co/wp-content/uploads/2024/05/untitled-article-1464746669-body-image-1464747079.jpg?quality=90&w=750",
       balance: 0,
+      expenses: [],
     },
     {
       id: 8902632,
@@ -39,6 +71,7 @@ function App() {
       profilePic:
         "https://i-d.co/wp-content/uploads/2024/05/untitled-article-1464146842-body-image-1464147791.jpg?quality=90&w=602",
       balance: 0,
+      expenses: [],
     },
   ];
   const [friendsMainArr, setFriendsMainArr] = useState(friendsArray);
