@@ -137,3 +137,10 @@ select option {
   background-color: #fff;
   color: #333;
 }
+
+.red {
+  color: var(red) !important;
+}
+.green {
+  color: rgb(21, 198, 21);
+}

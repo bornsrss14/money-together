@@ -18,7 +18,22 @@ export const FriendItem = ({ onSelectFriend, friendObject }) => {
         </div>
         <div className="friend-detail">
           <p className="name">{friendObject.name}</p>
-          <span>{`You owe Ros ${friendObject.balance} MXN`}</span>
+
+          <span>
+            {friendObject.balance < 0 && (
+              <p className="red">
+                You owe {friendObject.name} {Math.abs(friendObject.balance)}€
+              </p>
+            )}
+            {friendObject.balance > 0 && (
+              <p className="green">
+                {friendObject.name} owes you {Math.abs(friendObject.balance)}€
+              </p>
+            )}
+            {friendObject.balance === 0 && (
+              <p>You and {friendObject.name} are even</p>
+            )}
+          </span>
         </div>
         <div>
           <ButtonGral onClick={handleClick} txt={"select"} />
