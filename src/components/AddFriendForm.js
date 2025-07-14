@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ButtonGral from "../core/ButtonGral";
 
 export const AddFriendForm = ({ handleAddFriend }) => {

@@ -1,4 +1,3 @@
-import React from "react";
 import ImagenFit from "./ImagenFit";
 import ButtonGral from "./ButtonGral";
 

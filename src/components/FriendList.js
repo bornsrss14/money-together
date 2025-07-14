@@ -1,6 +1,4 @@
 import React from "react";
-import ButtonGral from "../core/ButtonGral";
-import ImagenFit from "../core/ImagenFit";
 import FriendItem from "../core/FriendItem";
 
 export const FriendList = ({ friendsMainArr, onSelectFriend }) => {
