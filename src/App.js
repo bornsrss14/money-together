@@ -1,16 +1,27 @@
-import logo from "./logo.svg";
 import "./App.css";
 import FriendList from "./components/FriendList";
 import SplitPurchaseForm from "./components/SplitPurchaseForm";
 import AddFriendForm from "./components/AddFriendForm";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [selectedFriend, setSelectedFriend] = useState("null");
   const handleSelectFriend = (friend) => setSelectedFriend(friend);
-  const [showAddFriendForm, setShowAddFriendForm] = useState(false);
 
   console.log(selectedFriend);
+
+  const categories = [
+    "Comida 🍖",
+    "Hogar 🏡",
+    "Medicinas ❤️‍🩹",
+    "Jardinería 🌼",
+    "Skin Care 💆",
+    "Gym 🏋️‍♀️",
+    "Diversión 🎢",
+    "Educación 📖",
+    "Mascotas 🐈",
+    "Other...",
+  ];
   const friendsArray = [
     {
       id: 17849,
@@ -23,7 +34,7 @@ function App() {
           id_exp: "e1",
           bill: 100,
           yourExpense: 60,
-          paidBy: "",
+          paidBy: "me",
           concept: "Pago CFE",
           category: "Servicios",
           date: "2025-05-18T20:10:00Z",
@@ -74,7 +85,14 @@ function App() {
       expenses: [],
     },
   ];
-  const [friendsMainArr, setFriendsMainArr] = useState(friendsArray);
+
+  const [friendsMainArr, setFriendsMainArr] = useState(() => {
+    const saved = localStorage.getItem("friendsMainArr");
+    return saved ? JSON.parse(saved) : friendsArray;
+  });
+  useEffect(() => {
+    localStorage.setItem("friendsMainArr", JSON.stringify(friendsMainArr));
+  }, [friendsMainArr]);
 
   function handleAddFriend(friendItem) {
     setFriendsMainArr((prevFriends) => [...prevFriends, friendItem]);
@@ -93,7 +111,7 @@ function App() {
   return (
     <div className="main-container-app">
       <h1 style={{ textAlign: "center" }}>
-        Fair splits, strong friendships (｡•̀ᴗ-)
+        (｡•̀ᴗ-) Fair splits, strong friendships.
       </h1>
       <div className="App">
         <div>
@@ -107,6 +125,7 @@ function App() {
           />
         </div>
         <SplitPurchaseForm
+          categoriesArr={categories}
           onSplitTheBill={handleSplitTheBill}
           selectedFriend={selectedFriend}
         />
