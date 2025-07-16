@@ -1,4 +1,5 @@
 import "./App.css";
+import "./MobileStyles.css";
 import FriendList from "./components/FriendList";
 import SplitPurchaseForm from "./components/SplitPurchaseForm";
 import AddFriendForm from "./components/AddFriendForm";
@@ -110,9 +111,9 @@ function App() {
 
   return (
     <div className="main-container-app">
-      <h1 style={{ textAlign: "center" }}>
-        (｡•̀ᴗ-) Fair splits, strong friendships.
-      </h1>
+      <div>
+        <h1 className="title-main">(｡•̀ᴗ-) Fair splits, strong friendships.</h1>
+      </div>
       <div className="App">
         <div>
           <FriendList

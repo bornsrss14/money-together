@@ -15,53 +15,90 @@ body {
   --color-orange: #ea580c;
   --color-orange-light: #ea5a0c52;
 }
-.main-container-app {
-  display: grid;
-  grid-column: 1fr;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-  padding: 2rem 15rem;
-  margin: 1 auto;
-}
-.App {
-  display: grid;
-  justify-content: center;
-  width: fit-content;
-  margin: 1rem auto;
-  height: fit-content;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
-#container-friends {
-  padding: 1rem 2rem;
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
+@media (min-width: 1023px) {
+  .main-container-app {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 2rem 15rem;
+    margin: 1rem auto;
+  }
+  .App {
+    display: grid;
+    justify-content: center;
+    width: fit-content;
+    margin: 1rem auto;
+    height: fit-content;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  #container-friends {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
 
-  background-color: var(--color-pink);
-  border: 1px solid var(--color-border-gray);
-}
+    background-color: var(--color-pink);
+    border: 1px solid var(--color-border-gray);
+  }
 
-#container-AddFriendForm {
-  height: fit-content;
-  padding: 1rem 5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: var(--color-pink);
-}
+  #container-AddFriendForm {
+    height: fit-content;
+    padding: 1rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--color-pink);
+  }
 
-#container-SplitPurchaseForm {
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 2rem;
-  background-color: var(--color-pink);
-}
+  #container-SplitPurchaseForm {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-pink);
+  }
 
-/* EVERYTHING RELATED WITH BUTTONS */
+  /* EVERYTHING RELATED WITH BUTTONS */
+
+  /*  FRIEND ITEM COMPONENT*/
+
+  .friend-detail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-input-style {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+
+  input[type="text"],
+  select {
+    width: fit-content;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.375rem; /* 6px */
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+  }
+  input[type="text"]:focus,
+  select:focus {
+    border-color: #5f2ef5d8;
+  }
+
+  select option {
+    background-color: #fff;
+    color: #333;
+  }
+}
 
 .btn-orange {
   background-color: #f97316; /* naranja vibrante */
@@ -85,20 +122,12 @@ body {
 .btn-extra-style {
   padding: 1rem 1rem;
 }
-/*  FRIEND ITEM COMPONENT*/
 
-.friend-detail {
-  display: flex;
-  flex-direction: column;
+.red {
+  color: var(red) !important;
 }
-.friend-item {
-  display: grid;
-  place-items: center;
-  grid-template-columns: 5rem 1fr 1fr;
-  width: 35rem;
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  height: fit-content;
+.green {
+  color: rgb(21, 198, 21);
 }
 .friend-item:hover {
   background-color: var(--color-orange-light);
@@ -108,39 +137,12 @@ body {
 .name {
   font-weight: 700;
 }
-
-.container-input-style {
+.friend-item {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  gap: 1rem;
-}
-
-input[type="text"],
-select {
-  width: fit-content;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.375rem; /* 6px */
-  background-color: #fff;
-  color: #333;
-  outline: none;
-  transition: border-color 0.2s ease-in-out;
-}
-input[type="text"]:focus,
-select:focus {
-  border-color: #5f2ef5d8;
-}
-
-select option {
-  background-color: #fff;
-  color: #333;
-}
-
-.red {
-  color: var(red) !important;
-}
-.green {
-  color: rgb(21, 198, 21);
+  place-items: center;
+  grid-template-columns: 5rem 1fr 1fr;
+  width: 35rem;
+  border-radius: 10px;
+  padding: 1rem 2rem;
+  height: fit-content;
 }

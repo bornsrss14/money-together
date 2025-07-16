@@ -6,7 +6,7 @@ export const AddFriendForm = ({ handleAddFriend }) => {
   const [urlPic, setUrlPic] = useState("");
   const [showFormAddFriend, setShowFormAddFriend] = useState(false);
   const handleShowFriendForm = () => {
-    setShowFormAddFriend((item) => !item);
+    setShowFormAddFriend((prev) => !prev);
   };
   function handleSubmitNewFriend(e) {
     e.preventDefault();
@@ -26,9 +26,10 @@ export const AddFriendForm = ({ handleAddFriend }) => {
     handleShowFriendForm();
   }
   return (
-    <div>
+    <div className="container-friend-popup">
       {showFormAddFriend ? (
         <>
+          <div className="overly-friend-form"></div>
           <form onSubmit={handleSubmitNewFriend} id="container-AddFriendForm">
             <div className="container-input-style">
               <label>👯‍♀️ Friend Name</label>

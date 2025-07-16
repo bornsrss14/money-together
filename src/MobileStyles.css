@@ -1,0 +1,86 @@
+@media (max-width: 780px) {
+  /* Aquí van los estilos específicos para celulares */
+  body {
+    font-size: 16px;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+
+  .App {
+    display: grid;
+    position: relative;
+    justify-content: center;
+    width: 100vw;
+    background-color: blue;
+    height: fit-content;
+    gap: 2rem;
+    overflow: hidden;
+    padding: 2rem 0;
+  }
+  .container-friend-popup {
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .overly-friend-form {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+  }
+  #container-AddFriendForm {
+    position: relative;
+    z-index: 101;
+    background-color: white;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .main-container-app {
+    padding: 1rem 0.5rem;
+    width: 100%;
+  }
+  #container-friends {
+    max-width: 30rem;
+    min-width: 25rem;
+    background-color: white;
+    padding: 1rem 0.5rem;
+    max-height: 40rem;
+    overflow-y: scroll;
+  }
+  #container-SplitPurchaseForm {
+    display: none;
+    height: fit-content;
+    width: 30rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background-color: var(--color-pink);
+  }
+  .title-main {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+  .friend-item {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 4rem 1fr 7rem;
+    width: 99%;
+    border-radius: 10px;
+    padding: 1rem 2rem;
+    height: fit-content;
+  }
+  .btn-split-containere {
+    max-width: 30rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
