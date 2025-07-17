@@ -6,6 +6,7 @@ export const ImagenFit = ({ width, height, src, alt }) => {
     height,
     borderRadius: "100%",
     overflow: "hidden",
+    backgroundColor: "white",
   };
   const imageStyle = {
     width: "100%",

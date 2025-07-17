@@ -1,8 +1,12 @@
 import ImagenFit from "./ImagenFit";
 import ButtonGral from "./ButtonGral";
 
-export const FriendItem = ({ onSelectFriend, friendObject }) => {
-  const handleClick = () => onSelectFriend(friendObject);
+export const FriendItem = ({ setIsHidden, onSelectFriend, friendObject }) => {
+  const handleClick = () => {
+    onSelectFriend(friendObject);
+    setIsHidden(false);
+    console.log("Esto es el resultado, de set is Hidden");
+  };
 
   return (
     <>

@@ -7,20 +7,24 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [selectedFriend, setSelectedFriend] = useState("null");
+  const [isHidden, setIsHidden] = useState(true);
   const handleSelectFriend = (friend) => setSelectedFriend(friend);
 
+  function toggleHidden() {
+    setIsHidden((prev) => !prev);
+  }
   console.log(selectedFriend);
 
   const categories = [
-    "Comida 🍖",
-    "Hogar 🏡",
+    "Food 🍖",
+    "Home 🏡",
     "Medicinas ❤️‍🩹",
-    "Jardinería 🌼",
+    "Gardening 🌼",
     "Skin Care 💆",
     "Gym 🏋️‍♀️",
-    "Diversión 🎢",
-    "Educación 📖",
-    "Mascotas 🐈",
+    "Fun 🎢",
+    "Education 📖",
+    "Pets 🐈",
     "Other...",
   ];
   const friendsArray = [
@@ -115,8 +119,9 @@ function App() {
         <h1 className="title-main">(｡•̀ᴗ-) Fair splits, strong friendships.</h1>
       </div>
       <div className="App">
-        <div>
+        <div className="relative-main">
           <FriendList
+            setIsHidden={setIsHidden}
             onSelectFriend={handleSelectFriend}
             friendsMainArr={friendsMainArr}
           />
@@ -126,6 +131,8 @@ function App() {
           />
         </div>
         <SplitPurchaseForm
+          isHidden={isHidden}
+          onClickHidden={toggleHidden}
           categoriesArr={categories}
           onSplitTheBill={handleSplitTheBill}
           selectedFriend={selectedFriend}

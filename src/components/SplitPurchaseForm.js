@@ -1,13 +1,19 @@
 import React, { useState } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import ButtonGral from "../core/ButtonGral";
+import ImagenFit from "../core/ImagenFit";
 
 export const SplitPurchaseForm = ({
+  onClickHidden,
+  isHidden,
   onSplitTheBill,
   selectedFriend,
   categoriesArr,
 }) => {
   const [bill, setBill] = useState("");
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+
   const [yourExpense, setYourExpense] = useState("");
   const [whoIsPaying, setWhoIsPaying] = useState("");
   const [category, setCategory] = useState("");
@@ -31,8 +37,46 @@ export const SplitPurchaseForm = ({
     setBill("");
   }
   return (
-    <form onSubmit={handleSpilTheBill} id="container-SplitPurchaseForm">
-      <h1>{`Split a bill with  ${selectedFriend.name ?? "... (・・ ) ?"}`}</h1>
+    <form
+      className={isHidden ? "oculto" : ""}
+      onSubmit={handleSpilTheBill}
+      id="container-SplitPurchaseForm"
+    >
+      <button onClick={onClickHidden} className="close-form">
+        {" "}
+        X{" "}
+      </button>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          gap: "1.4rem",
+          alignItems: "center",
+          justifyContent: "center",
+          margin: "0 0 1rem 0",
+        }}
+      >
+        <h1>
+          Split a bill with{" "}
+          <span style={{ color: "#ea580c", fontWeight: "bold" }}>
+            {(selectedFriend?.name || "...(・∀・)?").split(" ")[0]}
+          </span>
+        </h1>
+
+        {isMobile && (
+          <div className="profile-pi">
+            <ImagenFit
+              src={
+                selectedFriend?.profilePic ??
+                "https://firebasestorage.googleapis.com/v0/b/bornsrss-8ab5d.appspot.com/o/splits-bills%2Fpandas.png?alt=media&token=d45078fa-d2c2-4db5-9a5a-322b7fd092d2"
+              }
+              width={"48px"}
+              height={"48px"}
+              alt={"profile-pic"}
+            />
+          </div>
+        )}
+      </div>
       <div className="container-input-style">
         <label>💸 Bill Value</label>
         <input
@@ -52,8 +96,13 @@ export const SplitPurchaseForm = ({
       </div>
 
       <div className="container-input-style">
-        <label> {`${selectedFriend.name}'s expense`}</label>
-        <input value={paidByFriend} placeholder="none" type="text" disabled />
+        <label> {`${selectedFriend.name ?? "😶‍🌫️"}'s expense`}</label>
+        <input
+          value={paidByFriend}
+          placeholder="friend expense"
+          type="text"
+          disabled
+        />
       </div>
       <div className="container-input-style">
         <label>🤑 Who is paying the bill?</label>
@@ -91,7 +140,7 @@ export const SplitPurchaseForm = ({
         </div>
       </div>
       <div className="btn-split-containere">
-        <ButtonGral txt={"split"} />
+        <ButtonGral onClick={onClickHidden} txt={"split"} />
       </div>
     </form>
   );

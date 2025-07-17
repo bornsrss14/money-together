@@ -30,7 +30,11 @@ export const AddFriendForm = ({ handleAddFriend }) => {
       {showFormAddFriend ? (
         <>
           <div className="overly-friend-form"></div>
-          <form onSubmit={handleSubmitNewFriend} id="container-AddFriendForm">
+          <form
+            onSubmit={handleSubmitNewFriend}
+            className="scale-up-center"
+            id="container-AddFriendForm"
+          >
             <div className="container-input-style">
               <label>👯‍♀️ Friend Name</label>
               <input
@@ -47,7 +51,7 @@ export const AddFriendForm = ({ handleAddFriend }) => {
                 type="text"
               />
             </div>
-            <div className="btn-split-containere btn-extra-style">
+            <div className="add-friend-action">
               <ButtonGral txt={"Add"} />
             </div>
           </form>
