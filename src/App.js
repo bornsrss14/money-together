@@ -8,7 +8,10 @@ import { useEffect, useState } from "react";
 function App() {
   const [selectedFriend, setSelectedFriend] = useState("null");
   const [isHidden, setIsHidden] = useState(true);
-  const handleSelectFriend = (friend) => setSelectedFriend(friend);
+  const handleSelectFriend = (friend) => {
+    setSelectedFriend(friend);
+    document.title = `Let's split the bill - ${friend.name.split(" ")[0]}`;
+  };
 
   function toggleHidden() {
     setIsHidden((prev) => !prev);

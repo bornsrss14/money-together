@@ -1,7 +1,12 @@
 import React from "react";
 import FriendItem from "../core/FriendItem";
 
-export const FriendList = ({ setIsHidden, friendsMainArr, onSelectFriend }) => {
+export const FriendList = ({
+  setIsHidden,
+  handleSetNameTitle,
+  friendsMainArr,
+  onSelectFriend,
+}) => {
   return (
     <div id="container-friends">
       {friendsMainArr.map((friend) => (
